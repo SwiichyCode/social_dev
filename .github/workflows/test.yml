@@ -4,6 +4,7 @@ on:
 
 env:
   NODE_ENV: test
+  DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
 jobs:
   cache-and-install:
