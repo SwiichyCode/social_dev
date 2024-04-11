@@ -8,7 +8,7 @@ describe("AuthButton", () => {
   it("should redirect to /auth when clicked", () => {
     const push = jest.fn();
     const { getByText } = render(
-      <AppRouterContextProviderMock router={{ push: jest.fn() }}>
+      <AppRouterContextProviderMock router={{ push }}>
         <AuthButton session={null} />
       </AppRouterContextProviderMock>,
     );
@@ -28,7 +28,6 @@ describe("AuthButton", () => {
             expires: "",
           }}
         />
-        ,
       </AppRouterContextProviderMock>,
     );
 
