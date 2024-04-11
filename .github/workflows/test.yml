@@ -2,6 +2,9 @@ on:
   - push
   - pull_request
 
+env:
+  NODE_ENV: test
+
 jobs:
   cache-and-install:
     runs-on: ubuntu-latest
