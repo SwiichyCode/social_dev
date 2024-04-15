@@ -10,7 +10,7 @@ import GithubProvider from "next-auth/providers/github";
 
 import { env } from "@/config/env";
 import { db } from "@/config/server/db";
-
+import { URL } from "@/config/constants";
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
  * object and keep type safety.
@@ -46,7 +46,12 @@ export const authOptions: NextAuthOptions = {
         id: user.id,
       },
     }),
+
+    redirect: async ({ baseUrl }) => {
+      return Promise.resolve(baseUrl + URL.MEMBERS);
+    },
   },
+
   adapter: PrismaAdapter(db) as Adapter,
   providers: [
     GoogleProvider({
@@ -68,6 +73,10 @@ export const authOptions: NextAuthOptions = {
      * @see https://next-auth.js.org/providers/github
      */
   ],
+
+  pages: {
+    signIn: URL.AUTH,
+  },
 };
 
 /**
