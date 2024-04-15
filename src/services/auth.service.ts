@@ -1,5 +1,5 @@
 import { db } from "@/config/server/db";
-import { updateFirstConnectionType } from "./types/auth.service.type";
+import type { updateFirstConnectionType } from "./types/auth.service.type";
 
 class AuthService {
   async updateFirstConnection({

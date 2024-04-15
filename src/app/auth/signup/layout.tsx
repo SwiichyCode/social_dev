@@ -1,13 +1,10 @@
-import { redirect } from "next/navigation";
-import { getUser } from "@/services/actions/get-user";
+import { SignupProtectedLayout } from "@/routes/signup-protected-layout";
 import type { PropsWithChildren } from "react";
 
 export default async function SignupLayout({ children }: PropsWithChildren) {
-  const { data } = await getUser({});
-
-  if (!data?.firstConnection) {
-    redirect("/");
-  }
-
-  return <div>{children}</div>;
+  return (
+    <SignupProtectedLayout>
+      <div className="">{children}</div>
+    </SignupProtectedLayout>
+  );
 }
