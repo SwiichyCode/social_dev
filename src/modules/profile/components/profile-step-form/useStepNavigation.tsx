@@ -1,7 +1,7 @@
 "use client";
 import { useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useProfileStepForm } from "@/modules/profile/stores/useProfileStepForm";
+import { useProfileStepForm } from "@/modules/profile/components/profile-step-form/useProfileStepForm";
 import { updateLocalStorageAndNavigate } from "./updateLocalStorageAndNavigate";
 import { stepsShape } from "./_shape";
 import type { UseFormTrigger } from "react-hook-form";

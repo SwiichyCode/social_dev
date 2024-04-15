@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useProfileStepForm } from "@/modules/profile/stores/useProfileStepForm";
+import { useProfileStepForm } from "@/modules/profile/components/profile-step-form/useProfileStepForm";
 
 type Props = {
   children: React.ReactNode;

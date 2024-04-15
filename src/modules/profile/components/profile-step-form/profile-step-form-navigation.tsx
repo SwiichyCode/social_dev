@@ -1,6 +1,6 @@
 "use client";
 
-import { useProfileStepForm } from "@/modules/profile/stores/useProfileStepForm";
+import { useProfileStepForm } from "@/modules/profile/components/profile-step-form/useProfileStepForm";
 import { useStepNavigation } from "./useStepNavigation";
 import type { UseFormTrigger } from "react-hook-form";
 import type { Inputs } from "./_index";

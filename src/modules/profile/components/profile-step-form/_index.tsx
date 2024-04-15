@@ -2,7 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, type SubmitHandler } from "react-hook-form";
-import { useProfileStepForm } from "@/modules/profile/stores/useProfileStepForm";
+import { useProfileStepForm } from "@/modules/profile/components/profile-step-form/useProfileStepForm";
 import { ProfileStepFormNavigation } from "./profile-step-form-navigation";
 import { Form } from "@/components/ui/form";
 import { formSchema } from "./_schema";
@@ -10,6 +10,7 @@ import { renderStepFields } from "./profile-step-form-render-step-fields";
 import { usePersistedFormData } from "./useFormData";
 import { useWatchFormData } from "./useWatch";
 import { LOCAL_STORAGE } from "@/config/constants";
+import { updateFirstConnection } from "@/services/actions/update-first-connection";
 import * as z from "zod";
 
 export type Inputs = z.infer<typeof formSchema>;
@@ -29,8 +30,9 @@ export const ProfileStepForm = () => {
   const { watch } = form;
   useWatchFormData({ watch });
 
-  const handleSubmit: SubmitHandler<Inputs> = (data) => {
-    // Reset the form
+  const handleSubmit: SubmitHandler<Inputs> = async (data) => {
+    await updateFirstConnection({});
+
     form.reset({
       firstName: "",
       lastName: "",
